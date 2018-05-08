@@ -3,7 +3,7 @@ const router = express.Router();
 const authCtrl = require("../controller/auth/auth-ctrl.js");
 
 //user creatiion
-router.post("/new", authCtrl.register);
+// router.post("/new", authCtrl.register);
 //user login
 router.post("/login", authCtrl.login)
 

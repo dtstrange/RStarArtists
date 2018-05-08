@@ -55,38 +55,38 @@ ctrl.login = function(req, res) {
         res.status(500).json({message:'Something went wrong', error: err})
     })
 };
-ctrl.register = function(req, res) {
-    console.log("register")
-    var user = {
-        username: req.body.username.trim(),
-        email: req.body.email.trim().toLowerCase()
-    }
-    var salt = getSalt();
-    var hash = getHash(req.body.password, salt);
-    user.salt = salt;
-    user.hash= hash;
-    models.User.create(user)
-    .then(function(resp) {
-        fs.mkdir("./public/assets/images/users/" + resp.dataValues.id, (err) => {
-            if ((err) && (err.code !== 'EEXIST')) {
-                console.error(err)
-            } else {
-                fs.copyFile("./public/assets/images/defaultUser.png", "./public/assets/images/users/" + resp.dataValues.id + "/user.png", (err) => {
-                    if (err) {
-                        console.error(err)
-                    } else {
-                        res.json({success: true, token: generateJWT(resp)});
-                    }
-                })
-            }
-        })
-    })
-    .catch(function(err) {
-        console.error(err);
-        return res.status(500).end('Registration FAILED' + err.toString());
-        throw err;
-    });
-};
+// ctrl.register = function(req, res) {
+//     console.log("register")
+//     var user = {
+//         username: req.body.username.trim(),
+//         email: req.body.email.trim().toLowerCase()
+//     }
+//     var salt = getSalt();
+//     var hash = getHash(req.body.password, salt);
+//     user.salt = salt;
+//     user.hash= hash;
+//     models.User.create(user)
+//     .then(function(resp) {
+//         fs.mkdir("./public/assets/images/users/" + resp.dataValues.id, (err) => {
+//             if ((err) && (err.code !== 'EEXIST')) {
+//                 console.error(err)
+//             } else {
+//                 fs.copyFile("./public/assets/images/defaultUser.png", "./public/assets/images/users/" + resp.dataValues.id + "/user.png", (err) => {
+//                     if (err) {
+//                         console.error(err)
+//                     } else {
+//                         res.json({success: true, token: generateJWT(resp)});
+//                     }
+//                 })
+//             }
+//         })
+//     })
+//     .catch(function(err) {
+//         console.error(err);
+//         return res.status(500).end('Registration FAILED' + err.toString());
+//         throw err;
+//     });
+// };
 
 ctrl.update = function(req, res) {
     console.log("update")

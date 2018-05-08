@@ -1,15 +1,14 @@
 module.exports = function(sequelize, DataTypes){
     var Inventory = sequelize.define("Inventory",{
+        catalogNumber:{
+            type: DataTypes.STRING,
+            allowNull: false,
+            unique: true
+        },
         name:{
             type: DataTypes.STRING,
             allowNull: false,
             unique: false
-        },
-        catalogNumber:{
-            type: DataTypes.STRING,
-            allowNull: false,
-            unique: true,
-            primaryKey: true
         },
         size:{
             type: DataTypes.STRING,
@@ -17,9 +16,12 @@ module.exports = function(sequelize, DataTypes){
             unique: false
         },
         price:{
-            type: DataTypes.INTEGER,
+            type: DataTypes.DECIMAL(10,2),
             allowNull: false,
-            unique: false
+            unique: false,
+            validate:{
+                isDecimal: true
+            }
         },
         description:{
             type: DataTypes.STRING,

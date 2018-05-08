@@ -4,6 +4,10 @@ const express = require("express");
 const path = require("path");
 const jwt = require("express-jwt");
 const fileUpload = require('express-fileupload');
+const authRoutes = require("./routes/auth-routes.js");
+const fetch = require("./routes/fetch.js")
+const manageRoutes = require("./routes/manage-routes.js");
+
 
 //middleware
 const bodyParser = require('body-parser');
@@ -22,6 +26,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
+
+//routes
+app.use(express.static(path.join(__dirname + '/public')));
+app.use("/api/login", authRoutes);
+app.use("/api/fetch", fetch);
+app.use("/api/manage", manageRoutes);
 
 
 

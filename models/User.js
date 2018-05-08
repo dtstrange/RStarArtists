@@ -22,10 +22,6 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false
         }
     }); 
-    User.associate = function(models) {
-      models.User.hasMany(models.PublishedBooks, {
-          onDelete: "cascade"
-      });
-    };
+    
     return User; 
   };
