@@ -29,22 +29,12 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 //routes
 app.use(express.static(path.join(__dirname + '/public')));
-app.use("/api/login", authRoutes);
+app.use("/api/manage", authRoutes);
 app.use("/api/fetch", fetch);
-app.use("/api/manage", manageRoutes);
-
-
-
-
-
-
-
-
-
-
-
-
-
+app.use(jwt({
+    secret: process.env.JWT_SECRET
+}));
+app.use("/api/inventory", manageRoutes);
 
 db.sequelize.sync({ force: isDev }).then(function () {
     app.listen(PORT, function () {

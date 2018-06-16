@@ -10,6 +10,11 @@ module.exports = function(sequelize, DataTypes){
             allowNull: false,
             unique: false
         },
+        category:{
+            type: DataTypes.STRING,
+            allowNull: false,
+            unique: false
+        },
         size:{
             type: DataTypes.STRING,
             allowNull: true,
@@ -31,6 +36,30 @@ module.exports = function(sequelize, DataTypes){
         inStock:{
             type: DataTypes.BOOLEAN,
             defaultValue: 1
+        },
+        img1:{
+            type: DataTypes.STRING,
+            allowNull: true
+        },
+        img2:{
+            type: DataTypes.STRING,
+            allowNull: true
+        },
+        img3:{
+            type: DataTypes.STRING,
+            allowNull: true
+        },
+        thumb1:{
+            type: DataTypes.STRING,
+            allowNull: true
+        },
+        thumb2:{
+            type: DataTypes.STRING,
+            allowNull: true
+        },
+        thumb3:{
+            type: DataTypes.STRING,
+            allowNull: true
         }
     });
     return Inventory;

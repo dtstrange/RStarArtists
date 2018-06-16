@@ -12,6 +12,7 @@ router.post("/create", (req, res) => {
     const product = {
         catalogNumber: req.body.catalogNumber.trim(),
         name: req.body.name.trim(),
+        category: req.body.category,
         size: req.body.size,
         price: req.body.price,
         description: req.body.description
@@ -31,16 +32,35 @@ router.post("/create", (req, res) => {
     );
 });
 
-// router.put("/update",(req,res)=>{
-//     const product = {
-//         catalogNumber: req.query.catalogNumber.trim(),
-//         name: req.query.name.trim(),
-//         size: req.query.size,
-//         price: req.query.price,
-//         description: req.query.description
-//     };
-
-//     db.Inventory.findOne
-// });
+router.put("/update",(req,res)=>{
+    const product = {};
+    if(req.body.catalogNumber){
+        product.catalogNumber = req.body.catalogNumber.trim()
+    }
+    if(req.body.name){
+        product.name = req.body.name.trim()
+    }
+    if(req.body.category){
+        product.category = req.body.category.trim()
+    }
+    if(req.body.size){
+        product.size = req.body.size.trim()
+    }
+    if(req.body.price){
+        product.price = req.body.price.trim()
+    }
+    if(req.body.description){
+        product.description = req.body.description.trim()
+    }
+    db.Inventory.findOne({where:{ id: res.data.id}})
+    .then(resp =>{
+        res.json({success:true})
+    })
+    .catch(function(err) {
+        console.error(err);
+        return res.status(500).end('Update FAILED' + err.toString());
+        throw err;
+    });
+});
 
 module.exports = router;
