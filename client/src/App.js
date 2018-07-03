@@ -9,6 +9,7 @@ import Slideshow from './components/Slideshow/Slideshow';
 import Footer from './components/Footer/Footer';
 import Login from './pages/Login/Login';
 import Manage from './pages/Manage/Manage';
+import Products from './pages/Products/Products';
 
 class App extends Component {
   render() {
@@ -20,6 +21,8 @@ class App extends Component {
             <Switch>
               <Route exact path="/" component={Slideshow} />
               <Route exact path="/manage/login" component={Login} />
+              <Route exact path="/products" component={Products} />
+              {/* <Route exact path="/products/:catalogNumber" component={Item} /> */}
               <PrivateRoute exact path="/manage" component={Manage} />
             </Switch>
           </div>

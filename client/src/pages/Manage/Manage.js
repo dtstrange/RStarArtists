@@ -11,7 +11,7 @@ class Manage extends React.Component{
             category:'',
             size:'',
             price:'',
-            description:''
+            description:'',
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -27,6 +27,13 @@ class Manage extends React.Component{
     handleSubmit(event){
         event.preventDefault();
         const loginToken = window.localStorage.getItem("token");
+        // let data = new FormData();
+        // data.append("images.img1", document.getElementById("img1").files[0])
+        // data.append("image2", document.getElementById("img2").files[0])
+        // data.append("image3", document.getElementById("img3").files[0])
+        // data.append("thumb1", document.getElementById("thumb1").files[0])
+        // data.append("thumb2", document.getElementById("thumb2").files[0])
+        // data.append("thumb3", document.getElementById("thumb3").files[0])
 
         axios({
             headers: { "Authorization": "Bearer " + loginToken},
@@ -38,11 +45,12 @@ class Manage extends React.Component{
                 category:this.state.category,
                 size:this.state.size,
                 price:this.state.price,
-                description:this.state.description
+                description:this.state.description,
+                
             }
         })
-        .then(function(response){
-            console.log(response);
+        .then(function(data){
+            console.log(data);
             window.location.reload();
         })
         .catch(function(error){
@@ -81,30 +89,30 @@ class Manage extends React.Component{
                             Description:
                             <input name="description" type="text" value={this.state.value} onChange={this.handleChange}/>
                         </label>
-                        <label>
+                        {/* <label>
                             Image 1:
-                            <input name="img1" type="file" id="img1" onChange={this.handleChange}/>
+                            <input name="image1" type="file" id="img1" accept=".jpg" onChange={this.handleChange}/>
                         </label>
                         <label>
                             Image 2:
-                            <input name="img2" type="file" id="img2" onChange={this.handleChange}/>
+                            <input name="image2" type="file" id="img2" accept=".jpg" onChange={this.handleChange}/>
                         </label>
                         <label>
                             Image 3:
-                            <input name="img3" type="file" id="img3" onChange={this.handleChange}/>
+                            <input name="image3" type="file" id="img3" accept=".jpg" onChange={this.handleChange}/>
                         </label>
                         <label>
                             Thumbnail 1:
-                            <input name="thumb1" type="file" id="thumb1" onChange={this.handleChange}/>
+                            <input name="thumb1" type="file" id="thumb1"  accept=".jpg" onChange={this.handleChange}/>
                         </label>
                         <label>
                             Thumbnail 2:
-                            <input name="thumb2" type="file" id="thumb2" onChange={this.handleChange}/>
+                            <input name="thumb2" type="file" id="thumb2" accept=".jpg" onChange={this.handleChange}/>
                         </label>
                         <label>
                             Thumbnail 3:
-                            <input name="thumb3" type="file" id="thumb3" onChange={this.handleChange}/>
-                        </label>
+                            <input name="thumb3" type="file" id="thumb3" accept=".jpg" onChange={this.handleChange}/>
+                        </label> */}
                         <input type="submit" value="Submit" />    
                         </form>
                     </div>
