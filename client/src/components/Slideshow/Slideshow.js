@@ -11,7 +11,8 @@ import img7 from './images/header/07_edit.jpg';
 import img8 from './images/header/08_edit.jpg';
 import img9 from './images/header/09_edit.jpg';
 import img10 from './images/header/10_edit.jpg';
-import css from "../../../node_modules/react-image-gallery/styles/css/image-gallery-no-icon.css"
+import css from "../../../node_modules/react-image-gallery/styles/css/image-gallery-no-icon.css";
+
 class Slideshow extends React.Component {
 
   constructor() {
