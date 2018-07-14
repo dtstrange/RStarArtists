@@ -1,5 +1,6 @@
 import React from 'react';
 import Slideshow from '../../components/Slideshow/Slideshow';
+import css from './home.css';
 
 
 

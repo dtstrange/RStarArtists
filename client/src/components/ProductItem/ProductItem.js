@@ -10,7 +10,7 @@ class ProductItem extends React.Component{
     render(){
         return(
             <div id="items">
-                {this.props.data.map((product)=>{
+                {this.props.fetechedProducts.map((product)=>{
                     return <div>
                         {/* <img src={prodImage + product.catalogNumber + '/thumb/1.jpg'} alt={product.name} height="200" width="200"></img> */}
                         <Link to={'/products/' + product.catalogNumber} activeClassName="active">
