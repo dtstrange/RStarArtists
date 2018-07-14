@@ -5,7 +5,7 @@ import logo from './logo.svg';
 import './App.css';
 import './components/Navbar/Navbar';
 import Navbar from './components/Navbar/Navbar';
-import Slideshow from './components/Slideshow/Slideshow';
+import Home from './pages/Home/Home';
 import Footer from './components/Footer/Footer';
 import Login from './pages/Login/Login';
 import Manage from './pages/Manage/Manage';
@@ -19,10 +19,11 @@ class App extends Component {
           <Navbar/>
           <div className="container">
             <Switch>
-              <Route exact path="/" component={Slideshow} />
+              <Route exact path="/" component={Home} />
               <Route exact path="/manage/login" component={Login} />
               <Route exact path="/products" component={Products} />
               {/* <Route exact path="/products/:catalogNumber" component={Item} /> */}
+              {/* <Route exact path="/about" component={About} /> */}
               <PrivateRoute exact path="/manage" component={Manage} />
             </Switch>
           </div>

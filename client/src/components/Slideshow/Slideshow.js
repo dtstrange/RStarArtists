@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import ImageGallery from 'react-image-gallery';
 import img1 from './images/header/01_edit1.jpg';
-import img2 from './images/header/02.png';
+import img2 from './images/header/02_edit.jpg';
 import img3 from './images/header/03_edit.jpg';
 import img4 from './images/header/04_edit.jpg';
 import img5 from './images/header/05_edit.jpg';
