@@ -49,7 +49,7 @@ class Products extends React.Component{
                     <div className="col-md-12">
                         <div className="row">
                             <div className="col-md-2">
-                                {/* {(this.state.fetechedProducts[0])? <ProductItem data={this.state.fetechedProducts}/> :""} */}
+                                {(this.state.fetechedProducts[0])? <ProductItem data={this.state.fetechedProducts}/> :""}
                             </div>
                         </div>
                     </div>

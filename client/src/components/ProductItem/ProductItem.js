@@ -1,11 +1,8 @@
 import React from 'react';
-import {ReactDOM, Link} from 'react-dom';
+import {ReactDOM, Link} from 'react-router-dom';
 // import prodImage from './assets/images/';
 
 class ProductItem extends React.Component{
-    constructor(props){
-        super(props);
-    }
 
     render(){
         return(
