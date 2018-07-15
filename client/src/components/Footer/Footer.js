@@ -6,7 +6,7 @@ class Footer extends React.Component{
         return(
             <div className='row'>
               <div id='footer' className='col-md-12 text-center'>  
-                © Star Shields 2018
+                © RStarArtists 2018
               </div>  
             </div>    
         );

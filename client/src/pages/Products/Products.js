@@ -26,15 +26,18 @@ class Products extends React.Component{
         window.addEventListener('load', this.handleLoad);
     }
 
-    handleLoad(){
-        axios.get('/api/fetch')
-        .then(((resp)=>{
+    handleLoad = () =>{
+        axios({
+            method:"GET",
+            url:'/api/fetch'
+            })
+        .then((resp)=>{
             console.log(resp.data)
             this.setState({
-                fetechedProducts: resp.data.response
+                fetechedProducts: resp.data
             })
-            
-        }))
+            }
+        )
         .catch((error)=>{
             console.error(error)
         })
