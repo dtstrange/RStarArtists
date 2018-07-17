@@ -48,7 +48,7 @@ class Products extends React.Component{
                 <div className="row">
                     <div className="col-md-12">
                         <div className="row">
-                            <div className="col-md-2">
+                            <div className="col-md-8 mx-auto">
                                 {(this.state.fetechedProducts[0])? <ProductItem data={this.state.fetechedProducts}/> :""}
                             </div>
                         </div>
